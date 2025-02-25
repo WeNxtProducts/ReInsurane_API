@@ -1,0 +1,355 @@
+pxhfachdr
+pxhfacpart
+pxhfacpartcomm
+pxhfacplacedfn
+pxhfacrskcvr
+pxhfactax
+pxhintrifac
+pxhuwcs
+pxmttycvrdfn
+pxmttydfn
+pxmttylmtdfn
+pxmttysecdfn
+pxpfachdr
+pxpfacpart
+pxpfacpartcomm
+pxpfacplacedfn
+pxpfacrskcvr
+pxpfactax
+pxpintrifac
+
+pxtfachdr
+pxtfacpart
+pxtfacpartcomm
+pxtfacplacedfn
+pxtfacrskcvr
+pxtfactax
+pxtintrifac
+pxtttyalloc
+pxtttyalloctemp
+pxtuwcs
+
+http://localhost:3000/api/pxtfachdr or http://192.168.1.62:3000/api/pxtfachdr
+
+http://localhost:3000/api/pxtfacpart or http://192.168.1.62:3000/api/pxtfacpart
+
+http://localhost:3000/api/pxtfacpartcomm or http://192.168.1.62:3000/api/pxtfacpartcomm
+
+http://localhost:3000/api/pxtfacplacedfn or http://192.168.1.62:3000/api/pxtfacplacedfn
+
+http://localhost:3000/api/pxtfacrskcvr or http://192.168.1.62:3000/api/pxtfacrskcvr
+
+http://localhost:3000/api/pxtfactax or http://192.168.1.62:3000/api/pxtfactax
+
+http://localhost:3000/api/pxtintrifac or http://192.168.1.62:3000/api/pxtintrifac
+
+http://localhost:3000/api/pxtttyalloc or http://192.168.1.62:3000/api/pxtttyalloc
+
+http://localhost:3000/api/pxtttyalloctemp or http://192.168.1.62:3000/api/pxtttyalloctemp
+
+http://localhost:3000/api/pxtuwcs or http://192.168.1.62:3000/api/pxtuwcs
+
+// Import necessary modules (modify as needed)
+import { NextResponse } from "next/server";
+
+// Example: Import Prisma if using a database connection (Modify as per your DB)
+import { prisma } from "@/lib/prisma"; // Uncomment if you're using Prisma with MySQL
+
+/**
+ * API handlers for different endpoints
+ * Each function corresponds to an API route and returns a JSON response.
+ */
+
+
+
+const handlers = {
+  pxhfachdr: async (req, res) => 
+  res.status(200).json({ message: "pxhfachdr API response" }),
+
+
+  pxhfacpart: async (req, res) => res.status(200).json({ message: "pxhfacpart API response" }),
+  pxhfacpartcomm: async (req, res) => res.status(200).json({ message: "pxhfacpartcomm API response" }),
+  pxhfacplacedfn: async (req, res) => res.status(200).json({ message: "pxhfacplacedfn API response" }),
+  pxhfacrskcvr: async (req, res) => res.status(200).json({ message: "pxhfacrskcvr API response" }),
+  pxhfactax: async (req, res) => res.status(200).json({ message: "pxhfactax API response" }),
+  pxhintrifac: async (req, res) => res.status(200).json({ message: "pxhintrifac API response" }),
+  pxhuwcs: async (req, res) => res.status(200).json({ message: "pxhuwcs API response" }),
+  pxmttycvrdfn: async (req, res) => res.status(200).json({ message: "pxmttycvrdfn API response" }),
+  pxmttydfn: async (req, res) => res.status(200).json({ message: "pxmttydfn API response" }),
+  pxmttylmtdfn: async (req, res) => res.status(200).json({ message: "pxmttylmtdfn API response" }),
+  pxmttysecdfn: async (req, res) => res.status(200).json({ message: "pxmttysecdfn API response" }),
+  pxpfachdr: async (req, res) => res.status(200).json({ message: "pxpfachdr API response" }),
+  pxpfacpart: async (req, res) => res.status(200).json({ message: "pxpfacpart API response" }),
+  pxpfacpartcomm: async (req, res) => res.status(200).json({ message: "pxpfacpartcomm API response" }),
+  pxpfacplacedfn: async (req, res) => res.status(200).json({ message: "pxpfacplacedfn API response" }),
+  pxpfacrskcvr: async (req, res) => res.status(200).json({ message: "pxpfacrskcvr API response" }),
+  pxpfactax: async (req, res) => res.status(200).json({ message: "pxpfactax API response" }),
+  pxpintrifac: async (req, res) => res.status(200).json({ message: "pxpintrifac API response" }),
+  pxtfachdr: async (req, res) => res.status(200).json({ message: "pxtfachdr API response" }),
+  pxtfacpart: async (req, res) => res.status(200).json({ message: "pxtfacpart API response" }),
+  pxtfacpartcomm: async (req, res) => res.status(200).json({ message: "pxtfacpartcomm API response" }),
+  pxtfacplacedfn: async (req, res) => res.status(200).json({ message: "pxtfacplacedfn API response" }),
+  pxtfacrskcvr: async (req, res) => res.status(200).json({ message: "pxtfacrskcvr API response" }),
+  pxtfactax: async (req, res) => res.status(200).json({ message: "pxtfactax API response" }),
+  pxtintrifac: async (req, res) => res.status(200).json({ message: "pxtintrifac API response" }),
+  pxtttyalloc: async (req, res) => res.status(200).json({ message: "pxtttyalloc API response" }),
+  pxtttyalloctemp: async (req, res) => res.status(200).json({ message: "pxtttyalloctemp API response" }),
+  pxtuwcs: async (req, res) => res.status(200).json({ message: "pxtuwcs API response" }),
+};
+
+/**
+ * Main API handler function
+ * This function will dynamically route requests based on the endpoint in the URL.
+ */
+export default function handler(req, res) {
+  const { endpoint } = req.query; // Extract endpoint from the request URL
+
+  // Check if the requested endpoint exists in the handlers object
+  if (handlers[endpoint]) {
+    return handlers[endpoint](req, res);
+  } else {
+    // Return a 404 response if the endpoint is not found
+    return res.status(404).json({ error: "API endpoint not found" });
+  }
+}
+
+
+// Import necessary modules (e.g., MySQL, Prisma, etc.)
+import { NextResponse } from "next/server";
+
+// Example database connection (modify as needed)
+import { prisma } from "@/lib/prisma"; // If using Prisma
+import { recordTraceEvents } from "next/dist/trace";
+
+// Define all API handlers in one place
+const handlers = {
+  pxhfachdr: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxhfachdr.js file
+    
+    
+    export default async function handler(req, res) {
+      const { method } = req;
+      const { id } = req.query;
+    
+      if (!id) {
+        return res.status(400).json({ error: "ID is required" });
+      }
+    
+      switch (method) {
+        // GET: Fetch all pxh_fac_hdr records
+        case "GET":
+          try {
+            const records = await prisma.pXH_FAC_HDR.findMany();
+            res.status(200).json(records);
+          } catch (error) {
+            res.status(500).json({ error: "Database error" });
+          }
+          break;
+    
+        // POST: Create a new pxh_fac_hdr record
+        case "POST":
+          try {
+            const {
+              FH_UW_SYS_ID,
+              FH_UW_NO,
+              FH_POL_IDX,
+              FH_FAC_IDX,
+              FH_TOD,
+              FH_FMD,
+              FH_VER_NO,
+              FH_END_DESC,
+              FH_END_TYP,
+              FH_END_CODE,
+              FH_END_TOD,
+              FH_END_FMD,
+              FH_FAC_END_YN,
+              FH_END_NO,
+              FH_COMP,
+              FH_DIVN,
+              FH_DEPT,
+              FH_LOB,
+              FH_COB,
+              FH_PROD_CODE,
+              FH_SINGLE_PLACE,
+              FH_BASIS,
+              FH_PERC_ALL_RSK_YN,
+              FH_FAC_PERC,
+              FH_APD,
+            } = req.body;
+    
+            const newRecord = await prisma.pXH_FAC_HDR.create({
+              data: {
+                FH_UW_SYS_ID,
+                FH_UW_NO,
+                FH_POL_IDX,
+                FH_FAC_IDX,
+                FH_TOD,
+                FH_FMD,
+                FH_VER_NO,
+                FH_END_DESC,
+                FH_END_TYP,
+                FH_END_CODE,
+                FH_END_TOD,
+                FH_END_FMD,
+                FH_FAC_END_YN,
+                FH_END_NO,
+                FH_COMP,
+                FH_DIVN,
+                FH_DEPT,
+                FH_LOB,
+                FH_COB,
+                FH_PROD_CODE,
+                FH_SINGLE_PLACE,
+                FH_BASIS,
+                FH_PERC_ALL_RSK_YN,
+                FH_FAC_PERC,
+                FH_APD,
+              },
+            });
+            res.status(201).json(newRecord);
+          } catch (error) {
+            res.status(500).json({ error: "Database error" });
+          }
+          break;
+          
+          // GET: Fetch a single record by FH_SYS_ID
+            case "GET":
+              try {
+                const record = await prisma.pXH_FAC_HDR.findUnique({
+                  where: { FH_SYS_ID: parseInt(id) },
+                });
+        
+                if (!record) {
+                  return res.status(404).json({ error: "Record not found" });
+                }
+        
+                res.status(200).json(record);
+              } catch (error) {
+                console.error("Error fetching record:", error);
+                res.status(500).json({ error: "Database error" });
+              }
+              break;
+        
+            // PUT: Update a record by FH_SYS_ID
+            case "PUT":
+              try {
+                const updatedRecord = await prisma.pXH_FAC_HDR.update({
+                  where: { FH_SYS_ID: parseInt(id) },
+                  data: req.body, // Ensure the body contains valid fields
+                });
+        
+                res.status(200).json(updatedRecord);
+              } catch (error) {
+                console.error("Error updating record:", error);
+                res.status(500).json({ error: "Database error or record not found" });
+              }
+              break;
+        
+            // DELETE: Delete a record by FH_SYS_ID
+            case "DELETE":
+              try {
+                await prisma.pXH_FAC_HDR.delete({
+                  where: { FH_SYS_ID: parseInt(id) },
+                });
+        
+                res.status(204).end(); // No content
+              } catch (error) {
+                console.error("Error deleting record:", error);
+                res.status(500).json({ error: "Database error or record not found" });
+              }
+              break;
+        
+              default:
+              res.status(405).json({ message: "Method not allowed" });
+          }
+    }
+    
+    
+
+    //res.status(200).json({ message: "pxhfachdr API response", data });
+  },
+  pxhfacpart: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxhfacpart.js file
+    res.status(200).json({ message: "pxhfacpart API response" });
+  },
+  pxhfacpartcomm: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxhfacpartcomm.js file
+    res.status(200).json({ message: "pxhfacpartcomm API response" });
+  },
+  pxhfacplacedfn: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxhfacplacedfn.js file
+    res.status(200).json({ message: "pxhfacplacedfn API response" });
+  },
+  pxhfacrskcvr: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxhfacrskcvr.js file
+    res.status(200).json({ message: "pxhfacrskcvr API response" });
+  },
+  pxhfactax: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxhfactax.js file
+    res.status(200).json({ message: "pxhfactax API response" });
+  },
+  pxhintrifac: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxhintrifac.js file
+    res.status(200).json({ message: "pxhintrifac API response" });
+  },
+  pxhuwcs: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxhuwcs.js file
+    res.status(200).json({ message: "pxhuwcs API response" });
+  },
+  pxmttycvrdfn: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxmttycvrdfn.js file
+    res.status(200).json({ message: "pxmttycvrdfn API response" });
+  },
+  pxmttydfn: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxmttydfn.js file
+    res.status(200).json({ message: "pxmttydfn API response" });
+  },
+  pxmttylmtdfn: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxmttylmtdfn.js file
+    res.status(200).json({ message: "pxmttylmtdfn API response" });
+  },
+  pxmttysecdfn: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxmttysecdfn.js file
+    res.status(200).json({ message: "pxmttysecdfn API response" });
+  },
+  pxpfachdr: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxpfachdr.js file
+    res.status(200).json({ message: "pxpfachdr API response" });
+  },
+  pxpfacpart: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxpfacpart.js file
+    res.status(200).json({ message: "pxpfacpart API response" });
+  },
+  pxpfacpartcomm: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxpfacpartcomm.js file
+    res.status(200).json({ message: "pxpfacpartcomm API response" });
+  },
+  pxpfacplacedfn: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxpfacplacedfn.js file
+    res.status(200).json({ message: "pxpfacplacedfn API response" });
+  },
+  pxpfacrskcvr: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxpfacrskcvr.js file
+    res.status(200).json({ message: "pxpfacrskcvr API response" });
+  },
+  pxpfactax: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxpfactax.js file
+    res.status(200).json({ message: "pxpfactax API response" });
+  },
+  pxpintrifac: async (req, res) => {
+    // Copy the logic from your old /pages/api/pxpintrifac.js file
+    res.status(200).json({ message: "pxpintrifac API response" });
+  },
+};
+
+// Main API function
+export default function handler(req, res) {
+  const { endpoint } = req.query; // Extract endpoint from URL
+
+  // Check if the requested endpoint exists
+  if (handlers[endpoint]) {
+    return handlers[endpoint](req, res);
+  } else {
+    return res.status(404).json({ error: "API endpoint not found" });
+  }
+}
