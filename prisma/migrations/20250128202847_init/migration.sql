@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `pxh_fac_rsk_cvr` MODIFY `FRC_SYS_ID` INTEGER NOT NULL AUTO_INCREMENT;

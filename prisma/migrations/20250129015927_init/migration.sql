@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE `pxh_uw_cs` MODIFY `UCS_REC_TYP` VARCHAR(500) NULL;
